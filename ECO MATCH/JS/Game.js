@@ -1,4 +1,6 @@
 const grid = document.querySelector('.grid');
+const spanPlayer = document.querySelector('.player');
+/*const timer = document.querySelector('.timer');*/
 
 const temas = [
     'teste2',
@@ -16,11 +18,11 @@ const createElement = (tag, className) => {
   let firstCard = '';
   let secondCard = '';
 
-  const checkEndGame = () => {
+const checkEndGame = () => {
     const disabledCards = document.querySelectorAll('.disabled-card');
 
     if (disabledCards.length === 8) {
-        alert('Parabéns');
+        alert(`Parabéns, ${spanPlayer.innerHTML}`);
 
       }
 
@@ -108,4 +110,19 @@ const loadGame = () => {
 
   }
 
-  loadGame();
+  /*const startTimer = () => {
+
+    this.loop = setInterval(() => {
+      const currentTime = +timer.innerHTML;
+      timer.innerHTML = currentTime + 1;
+    }, 1000);
+  
+  }  */
+
+window.onload = () => {
+    spanPlayer.innerHTML = localStorage.getItem('player');
+    /*startTimer();*/
+    loadGame();
+}
+
+
